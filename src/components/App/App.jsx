@@ -13,6 +13,21 @@ function App() {
     fetchGallery();
   }, []);
 
+  const addNewLike = (addNewLikeFunction) => {
+    console.log(addNewLikeFunction);
+    axios({
+      method: 'PUT',
+      url: `/gallery/like/${addNewLikeFunction}`
+    })
+    .then((response) => {
+      console.log('response from POST:', response)
+      fetchGallery();
+    })
+    .catch(function (error) {
+      console.log('error with like button:', error);
+    });
+  }
+
   // GET request to get Gallary array
   const fetchGallery = () => {
     axios({
@@ -35,7 +50,7 @@ function App() {
           <h1 className="App-title">Gallery of My Life</h1>
         </header>
         <p>Gallery goes here</p>
-        <GalleryList galleryListProp={galleryList}/>
+        <GalleryList galleryListProp={galleryList} addNewLikeFunction={addNewLike}/>
         {/* <img src="images/goat_small.jpg"/> */}
       </div>
     );
