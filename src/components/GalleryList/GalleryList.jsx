@@ -14,6 +14,7 @@ function GalleryList({ galleryListProp, addNewLikeFunction }) {
         )
     })
 
+    // return GalleryItem to DOM
     return (
         <>
         {listOfGallery}

@@ -19,6 +19,16 @@ function GallaryItem({ gallery, addNewLikeFunction }) {
         setToggle(!toggle);
     }
 
+    // work more on this
+    const moreThanZeroLike = () => {
+        if (gallery.likes == 1 ) {
+            return <p>{gallery.likes} liked this photo</p>
+        } 
+        else {
+            return <p>no one like this photo yet</p>
+        }
+    }
+
     return (
         <div className="gallery">
             <div onClick={toggleDescription} className="image-description">
@@ -29,7 +39,8 @@ function GallaryItem({ gallery, addNewLikeFunction }) {
                 <button className="heart-button" onClick={addLike}>Like</button>
             </div>
             <div className="like-count">
-                <p>{gallery.likes} love this!</p>
+                <>{moreThanZeroLike}</>
+                {/* <p>{gallery.likes} love this!</p>           */}
             </div>
         </div>
     )
@@ -37,3 +48,5 @@ function GallaryItem({ gallery, addNewLikeFunction }) {
 
 
 export default GallaryItem;
+
+// work on conditional rendering
