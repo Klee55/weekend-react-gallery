@@ -9,7 +9,7 @@ function App() {
   const [galleryList, setGalleryList] = useState([]);
 
   // fire off fetchGallery on load
-  useEffect( () => {
+  useEffect(() => {
     fetchGallery();
   }, []);
 
@@ -19,13 +19,13 @@ function App() {
       method: 'PUT',
       url: `/gallery/like/${addNewLikeFunction}`
     })
-    .then((response) => {
-      console.log('response from POST:', response)
-      fetchGallery();
-    })
-    .catch(function (error) {
-      console.log('error with like button:', error);
-    });
+      .then((response) => {
+        console.log('response from POST:', response)
+        fetchGallery();
+      })
+      .catch(function (error) {
+        console.log('error with like button:', error);
+      });
   }
 
   // GET request to get Gallary array
@@ -34,26 +34,27 @@ function App() {
       method: 'GET',
       url: '/gallery'
     })
-    .then((response) => {
-      console.log('Response from GET:', response);
-      setGalleryList(response.data);
-      // console.log(galleryList);
-    })
-    .catch(function (error) {
-      console.log('error with GET:', error);
-    });
+      .then((response) => {
+        console.log('Response from GET:', response);
+        setGalleryList(response.data);
+        // console.log(galleryList);
+      })
+      .catch(function (error) {
+        console.log('error with GET:', error);
+      });
   }
 
-    return (
-      <div className="App">
-        <header className="App-header">
-          <h1 className="App-title">Gallery of My Life</h1>
-        </header>
-        <p>Gallery goes here</p>
-        <GalleryList galleryListProp={galleryList} addNewLikeFunction={addNewLike}/>
-        {/* <img src="images/goat_small.jpg"/> */}
+  return (
+    <div className="App">
+      <header className="App-header">
+        <h1 className="App-title">Gallery of My Life</h1>
+      </header>
+      <p>Gallery goes here</p>
+      <div className="images">
+        <GalleryList galleryListProp={galleryList} addNewLikeFunction={addNewLike} />
       </div>
-    );
+    </div>
+  );
 }
 
 export default App;

@@ -15,9 +15,9 @@ function GalleryList({ galleryListProp, addNewLikeFunction }) {
     })
 
     return (
-        <div>
+        <>
         {listOfGallery}
-        </div>
+        </>
     )
 
 
