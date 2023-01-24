@@ -13,6 +13,7 @@ function App() {
     fetchGallery();
   }, []);
 
+  // adding likes functions
   const addNewLike = (addNewLikeFunction) => {
     console.log(addNewLikeFunction);
     axios({
